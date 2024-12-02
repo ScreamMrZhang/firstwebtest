@@ -1,0 +1,150 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+
+  <!-- Add your site or application content here -->
+  <p>Hello world! This is HTML5 Boilerplate.</p>
+  <script src="js/app.js"></script>
+
+</body>
+
+<script>
+
+  function replaceString(original, target, replacement) {
+    const regex = new RegExp(target, 'g');
+    return original.replace(regex, replacement);
+  }
+  console.log("*******第一题输出******");
+  console.log(replaceString("hello world", "world", "there")); // 输出: "hello there"
+  console.log(replaceString("abc abc abc", "abc", "123")); // 输出: "123 123 123"
+
+
+  function isValid(s) {
+    const stack = [];
+    const matchingBrackets = {
+      ')': '(',
+      '}': '{',
+      ']': '['
+    };
+
+    for (let char of s) {
+      if (char === '(' || char === '{' || char === '[') {
+        stack.push(char);  // 遇到开括号，入栈
+      } else if (char === ')' || char === '}' || char === ']') {
+        // 遇到闭括号，检查栈顶元素是否匹配
+        if (stack.length === 0 || stack.pop() !== matchingBrackets[char]) {
+          return false;
+        }
+      }
+    }
+
+    // 最终栈应该为空，表示所有括号都有对应的闭括号
+    return stack.length === 0;
+  }
+  console.log("*******第二题输出******");
+  console.log("()的答案为："+isValid("()"));      // true
+  console.log("()[]{}的答案为："+isValid("()[]{}"));  // true
+  console.log("(]的答案为："+isValid("(]"));      // false
+  console.log("([)]的答案为："+isValid("([)]"));    // false
+  console.log("{[]}的答案为："+isValid("{[]}"));    // true
+
+
+  let input = "Let's take LeetCode contest";
+  function reverseWordsOrder(str) {
+    return str.split(' ').reverse().join(' ');
+  }
+  let output = reverseWordsOrder(input);
+  console.log("*******第三题输出******");
+  console.log("Let's take LeetCode contest的答案为："+output);
+
+
+
+
+
+  function findSecondLargest(arr) {
+    // 排序
+    const uniqueArr = arr.sort((a, b) => b - a);
+    // 如果去重后的数组长度小于 2，返回 null
+    if (uniqueArr.length < 2) {
+      return null;
+    }
+    //有相同的就直接返回null
+    if(uniqueArr[1]===uniqueArr[0]){
+      return null;
+    }
+    console.log(uniqueArr);
+    // 返回排序后的第二大元素
+    return uniqueArr[1];
+  }
+
+
+  console.log("*******第四题输出******");
+  console.log("[3, 5, 1, 2, 4]的答案为："+findSecondLargest([3, 5, 1, 2, 4]));  // 4
+  console.log("[1, 2, 2, 2]的答案为："+findSecondLargest([1, 2, 2, 2]));     // null
+  console.log("[5]的答案为："+findSecondLargest([5]));              // null
+  console.log("[10, 10, 10]的答案为："+findSecondLargest([10, 10, 10]));     // null
+
+  function countNum(arr) {
+    const frequencyMap = {};
+
+    arr.forEach(item => {
+      frequencyMap[item] = (frequencyMap[item] || 0) + 1;
+    });
+
+    return frequencyMap;
+  }
+
+
+  console.log("*******第五题输出******");
+  console.log("[1, 2, 2, 3, 3, 3, 4]的答案为"); // 输出: { '1': 1, '2': 2, '3': 3, '4': 1 }
+  console.log(countNum([1, 2, 2, 3, 3, 3, 4]));
+
+
+  function toUnique(arr) {
+    return [...new Set(arr)];
+  }
+  console.log("*******第六题输出******");
+  console.log("[1, 1, 1, 2, 3, 4, 3, 2]的答案为"+toUnique([1, 1, 1, 2, 3, 4, 3, 2]));  // [1, 2, 3, 4]
+
+
+  function formatCurrtyTime(tem) {
+    const localDateTime = new Date();
+    const y = localDateTime.getFullYear();
+    const m = localDateTime.getMonth();
+    const d = localDateTime.getDate();
+    const hh= localDateTime.getHours();
+    const mm = localDateTime.getMinutes();
+    const ss = localDateTime.getSeconds();
+
+    const step1 = tem.split("yyyy").slice(1,0,y);
+    step1.join()
+  }
+
+
+
+</script>
+<!--7853-->
+
+</html>
